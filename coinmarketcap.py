@@ -27,8 +27,7 @@ class CMC_Client:
             response = self.session.get(url, params = parameters)
             if response.status_code == 200:
                 data = json.loads(response.text)
-                json_string = json.dumps(data['data'])
-                return json_string
+                return data['data']
             else :
                 return response.text
         except (ConnectionError, Timeout, TooManyRedirects) as e:
